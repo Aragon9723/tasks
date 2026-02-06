@@ -28,7 +28,12 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    return [];
+    const toInt = numbers.map((stri: string): number => Number(stri));
+    const nanToZero = toInt.map((num: number): number =>
+        Number.isNaN(num) ? 0 : num,
+    );
+
+    return nanToZero;
 }
 
 /**
