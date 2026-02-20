@@ -50,7 +50,10 @@ export function findQuestion(
  * Hint: use filter
  */
 export function removeQuestion(questions: Question[], id: number): Question[] {
-    return [];
+    const deepCopy = questions.map(
+        (question: Question): Question => ({ ...question }),
+    );
+    return deepCopy.filter((question: Question): boolean => question.id !== id);
 }
 
 /***
