@@ -151,11 +151,38 @@ export function renameQuestionById(
  *
  * Hint: you need to use the ... operator for both the question and the options array
  */
+
+function addOption(
+    options: string[],
+    targetOptionIndex: number,
+    newOption: string,
+): string[] {
+    if (targetOptionIndex === -1) {
+        return [...options, newOption];
+    }
+    const newOptionArray = [...options];
+    newOptionArray.splice(targetOptionIndex, 1, newOption);
+    return newOptionArray;
+}
+
 export function editOption(
     questions: Question[],
     targetId: number,
     targetOptionIndex: number,
     newOption: string,
 ): Question[] {
-    return [];
+    const deepCopy = questions.map(
+        (question: Question): Question =>
+            question.id === targetId ?
+                {
+                    ...question,
+                    options: addOption(
+                        question.options,
+                        targetOptionIndex,
+                        newOption,
+                    ),
+                }
+            :   { ...question },
+    );
+    return deepCopy;
 }
