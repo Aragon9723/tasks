@@ -185,4 +185,5 @@ export function editOption(
             :   { ...question },
     );
     return deepCopy;
+    return [];
 }
