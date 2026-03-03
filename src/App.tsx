@@ -2,6 +2,10 @@ import React from "react";
 import "./App.css";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import weird_ad_i_found from "./assets/images/weird-ad-i-found.png";
+import { ChangeType } from "./components/ChangeType";
+import { RevealAnswer } from "./components/RevealAnswer";
+import { TwoDice } from "./components/TwoDice";
+import { Counter } from "./components/Counter";
 
 function App(): React.JSX.Element {
     return (
@@ -54,6 +58,14 @@ function App(): React.JSX.Element {
                     </Col>
                 </Row>
             </Container>
+            <hr></hr>
+            <Counter></Counter>
+            <hr />
+            <RevealAnswer></RevealAnswer>
+            <hr />
+            <TwoDice></TwoDice>
+            <hr />
+            <ChangeType></ChangeType>
         </div>
     );
 }
